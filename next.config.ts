@@ -1,7 +1,28 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  serverExternalPackages: ["sharp"],
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "10mb",
+    },
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.r2.cloudflarestorage.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.r2.dev",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
